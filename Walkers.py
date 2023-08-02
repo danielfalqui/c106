@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 
 
 # Crie nosso classificador de corpos
@@ -21,9 +22,9 @@ while True:
     # Extraia as caixas delimitadoras para quaisquer corpos identificados
     
     for (x,y,w,h) in bodies:
-       cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
+       cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 255), 2)
        roi_color = frame[y: y+h, x: x+w]
-       cv2.imwrite("people.jpg", roi_color)
+       cv2.imshow('Pedestres', frame)
 
     if cv2.waitKey(1) == 32: #32 é a barra de espaço
         break
